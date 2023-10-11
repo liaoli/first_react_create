@@ -19,21 +19,14 @@ class App extends React.Component {
     // }
 
     add() {
-        console.log('我被点击了啊', this)
+        console.log('我被点击了啊',this)
         this.setState({
             count: this.state.count + 1
         })
     }
 
     add2() {
-        console.log('我被点击了啊', this)
-        this.setState({
-            count: this.state.count + 1
-        })
-    }
-    //函数对象
-    add3 = () => {
-        console.log('我被点击了啊', this)
+        console.log('我被点击了啊',this)
         this.setState({
             count: this.state.count + 1
         })
@@ -45,7 +38,6 @@ class App extends React.Component {
                 <h1>当前计数:{this.state.count}</h1>
                 <button onClick={() => this.add2()}>+1</button>
                 <button onClick={this.add2}>+1</button>
-                <button onClick={this.add3}>+1</button>
             </div>
         )
     }
