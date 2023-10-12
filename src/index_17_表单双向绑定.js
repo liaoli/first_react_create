@@ -5,25 +5,19 @@ import { createRoot } from 'react-dom/client';
 // state的基本使用
 
 class App extends React.Component {
-
-    constructor() {
-        super()
-        this.txtRef = React.createRef()
+    state = {
+        txt: 'hello'
     }
 
-    handleClick = (e) => {
-        console.log("输入的内容为：",this.txtRef.current.value)
+    handleChange = (e) => {
+        this.setState({
+            txt: e.target.value
+        })
     }
-
-   
-
     render() {
         return (
             <div>
-                {/** 文本框 */}
-                <input type="text" name="txt" ref={this.txtRef}/>
-                <br /> 
-                <button onClick={this.handleClick}>get input content</button>
+                <input type="text" value={this.state.txt} onChange={this.handleChange}/>
             </div>
         )
     }
