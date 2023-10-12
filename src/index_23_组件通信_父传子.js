@@ -3,40 +3,12 @@ import ReactDOM from 'react-dom'
 import './index.css'
 
 const Child = (props) => {
-
-    const changeData = () => {
-        props.fn({data:'我是子组件的数据', count: 19})
-    }
-    
     return (
         <div>
             <h1>收到来自父组件的数据：{props.data} and {props.count}</h1>
-            <button onClick={changeData}>change data</button>
         </div>
     )
 }
-
-class Child2 extends React.Component {
-    
-    state = {
-        name: '我是子组件的数据',
-        age: 19
-    }
-
-    callback = () => {
-        this.props.fn({data: this.state.name, count: this.state.age})
-    }
-
-    render() {
-        return (
-            <div>
-                <h1>我孩子组件</h1>
-                <button onClick={this.callback}>change data</button>
-            </div>
-        )
-    }
-}
-
 
 class Parent extends React.Component {
     constructor(props) {
@@ -53,11 +25,6 @@ class Parent extends React.Component {
             count: this.state.count + 1
         })
     }
-    changeData = (childData) => {
-        this.setState({
-            ...childData
-        })
-    }
 
     render() {
         console.log("render", this.props)
@@ -69,9 +36,8 @@ class Parent extends React.Component {
                     {this.props.tag}
                 </h1>
 
-                <Child {...this.state} fn={this.changeData}/>
+                <Child {...this.state} />
                 <button onClick={this.add}>increment</button>
-                <Child2 fn={this.changeData}/>
             </div>
 
         )

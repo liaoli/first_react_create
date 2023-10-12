@@ -20,3 +20,13 @@
   text-align: center;
   margin-top: 30px;
 }
+.parent {
+  height: 100px;
+  padding: 20px;
+  background-color: skyblue;
+}
+
+.child {
+  height: 50px;
+  background-color: aquamarine;
+}
