@@ -1,49 +1,33 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './context.css'
+import PropTypes from 'prop-types'
 
-// Context provider
 
-const { Provider, Consumer } = React.createContext()
+const App = (props) => {
 
-class App extends React.Component {
-    render() {
-        return (
-            <Provider value={{ name: 'lily', age: 19 }}>
-                <div className="app">
-                    <Node />
-                </div>
-            </Provider>
-        )
-    }
-}
-
-const Node = () => {
+    console.log("render",props)
     return (
-        <div className="node">
-            <SubNode />
+        <div>
+            <h1 className="title">
+                组件标签的子节点：
+            </h1>
+            {props.children}
         </div>
     )
 }
 
-const SubNode = () => {
-    return (
-        <div className="subnode">
-            <Child />
-        </div>
-    )
+// 添加 props 校验
+App.propTypes = {
+    colors: PropTypes.array,
+    name: PropTypes.string,
+    age: PropTypes.number,
+    fn: PropTypes.func.isRequired,// 必填项
+    filter: PropTypes.shape({// 对象校验
+        area: PropTypes.string,
+        pricr: PropTypes.number
+    })
 }
 
-const Child = () => {
-    return (
-        <Consumer>
-            {({ name, age }) => (
-                <div>
-                    <h1>{name} - {age}</h1>
-                </div>
-            )}
-        </Consumer>
-    )
-}
-
-ReactDOM.render(<App />, document.getElementById('root'))
+// ReactDOM.render(<App > <div> 我是子节点</div></App>, document.getElementById('root'))
+ReactDOM.render(<App colors={['red','blue']}  name={['张三','李四']} age="12"> <div> 我是子节点</div></App>, document.getElementById('root'))
