@@ -28,6 +28,14 @@ App.propTypes = {
         pricr: PropTypes.number
     })
 }
+App.defaultProps = {
+    colors: ['red','blue'],
+    name: 'lily',
+    age: 18,
+    fn: () => {
+        console.log('我是函数')
+    }
+}
 
 // ReactDOM.render(<App > <div> 我是子节点</div></App>, document.getElementById('root'))
-ReactDOM.render(<App colors={['red','blue']}  name={['张三','李四']} age="12"> <div> 我是子节点</div></App>, document.getElementById('root'))
+ReactDOM.render(<App colors={['red','blue']}  > <div> 我是子节点</div></App>, document.getElementById('root'))
