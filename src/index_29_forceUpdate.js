@@ -73,12 +73,6 @@ class Hello extends React.Component {
         this.forceUpdate()
     }
     render() {
-
-        // Maximum update depth 不能在render中调用setState方法 ，否则会报错，死循环
-        // this.setState({
-        //     flag: false
-        // })
-
         return (
             <div>
                 <h1 className="title">

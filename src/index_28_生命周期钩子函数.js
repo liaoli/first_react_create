@@ -13,30 +13,14 @@ class App extends React.Component {
         console.log("生命周期函数：constructor")
     }
 
-    static getDerivedStateFromProps(nextProps, prevState) {
-        console.log("生命周期函数：getDerivedStateFromProps")
-        return null
-    }
-
-    shouldComponentUpdate(nextProps, nextState) {
-        console.log("生命周期函数：shouldComponentUpdate")
-        return true
-    }
-
     //已经渲染完成了
     componentDidMount() {
         console.log("生命周期函数：componentDidMount")
     }
 
-    getSnapshotBeforeUpdate(prevProps, prevState) {
-        console.log("生命周期函数：getSnapshotBeforeUpdate")
-        return null
-    }
-
     componentDidUpdate() {
         console.log("生命周期函数：componentDidUpdate")
     }
-
 
     componentWillUnmount() {
         console.log("生命周期函数：componentWillUnmount")
@@ -69,23 +53,13 @@ class Hello extends React.Component {
         flag: true  
     }
 
-    handleClick = () => {
-        this.forceUpdate()
-    }
     render() {
-
-        // Maximum update depth 不能在render中调用setState方法 ，否则会报错，死循环
-        // this.setState({
-        //     flag: false
-        // })
-
         return (
             <div>
                 <h1 className="title">
                     Hello, I'm a Class component!
                 </h1>
               { this.state.flag ? <App/> : (<div>{this.state.flag}不显示app组件</div>)}
-              <button onClick={this.handleClick}>forceUpdate</button>
             </div>
         )
     }
