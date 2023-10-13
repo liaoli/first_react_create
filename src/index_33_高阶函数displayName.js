@@ -17,8 +17,7 @@ function withMouse(WrapedComponent) {
             })
         }
         render() {
-            console.log("生命周期函数：render",this.props)
-            return <WrapedComponent {...this.state} {...this.props} />
+            return <WrapedComponent {...this.state} />
         }
     
         componentDidMount() {
@@ -42,8 +41,6 @@ const Position = props => {
     return (
         <div>
             鼠标位置: {props.x}:{props.y}
-            <br/>
-            {props.a}
         </div>
     )
 }
@@ -69,8 +66,8 @@ class App extends React.Component {
         console.log("生命周期函数：render")
         return (
             <div>
-                <MousePosition a={1}/>
-                <MouseTiger b='I am a tiger' />
+                <MousePosition />
+                <MouseTiger />
             </div>
         )
     }
