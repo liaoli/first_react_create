@@ -51,6 +51,12 @@ class App extends React.Component {
     
 
     render() {
+
+        // Maximum update depth 不能在render中调用setState方法 ，否则会报错，死循环
+        // this.setState({
+        //     flag: false
+        // })
+
         console.log("生命周期函数：render")
         return (
             <div>
